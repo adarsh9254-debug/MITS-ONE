@@ -1,0 +1,127 @@
+body {
+    font-family: Ariel, sans-serif;
+    text-align: center;
+    
+}
+
+h1 {
+    color: #1e40af;
+    font-size: 42px;
+
+}
+
+p {
+    font-size: 18px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+
+}
+nav {
+    display: flex;
+    flex-direction: row;
+    Align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+
+}
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+nav {
+    background-color: white;
+    border-radius: 10px;
+}
+.nav-links a {
+    text-decoration: none;
+    color: #1e293b;
+}
+.hero{
+    text-align: center;
+    padding: 80px 20px;
+}
+.features {
+    display: flex;
+    gap: 25px;
+    padding: 40px 20px;
+}
+.feature-card {
+    width: 250px;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: whitesmoke;
+    text-align: center;
+}
+.feature-card {
+    transition: transform 0.2s;
+}
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+.search-section {
+    text-align: center;
+    padding: 50px 20px;
+}
+input {
+    width: 400px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid white;
+    border-radius: 8px;
+}     
+.feature-card {
+    width: 250px;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: whitesmoke;
+    text-align: center;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+}
+.feature-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+.resource-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 20px;
+
+}
+.feature-card {
+    width: 250px;
+    padding: 25px;
+    background-color: whitesmoke;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    
+}
+.resource-filter {
+     display: flex;
+    justify-content: center;
+     align-items: center;
+    gap: 12px;
+     margin: 20px 0;
+}
+
+   .resource-filter label {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+ .resource-filter select {
+     padding: 10px 15px;
+    font-size: 16px;
+     border: 1px solid #cbd5e1;
+    border-radius: 8px;
+     background-color: white;
+    cursor: pointer;
+}
