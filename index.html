@@ -9,15 +9,20 @@
  
  <body>
     <nav>
-        <h2>MITS ONE</h2>
-        <div class="nav-links">
-         <a href="index.html">Home</a>
-          <a href="resources.html">Resources</a>
-          <a href="events.html">Events</a>
-          <a href="opportunities.html">Opportunities</a>
-        </div>  
-        <button>Login</button>
+      <div class="logo">
+       <h2>MITS ONE</h2>
+       <span>Student Platform</span>
+        </div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="resources.html" class="active">Resources</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="opportunities.html" class="active">Opportunities</a>
+       
+      </div>
+       <button class="login-btn">Login</button>
     </nav>
+    
         <section class="search-section">
             <h2>What are you looking for?</h2>     
          <input
@@ -31,37 +36,56 @@
     <p id="search-result"></p>
     </section>
         
-    <section class="hero">
-            <h1>Everything you need at MITS</h1>
-            <p>Find college information, resources, events and opportunities all in one place.</p>
-         <button>Explore MITS ONE</button>
-    </section>
-    
+   <section class="hero">
+
+    <div class="hero-text">
+
+        <p class="small-title">MITS ONE</p>
+
+        <h1>Your Campus.<br>One Platform.</h1>
+
+        <p class="hero-para">
+            Find study resources, events, opportunities
+            and important college information in one place.
+        </p>
+
+       <a href="resources.html" class="hero-btn">Explore MITS ONE</a>
+
+    </div>
+
+</section>
  <section class="features">
 
     <div class="feature-card">
-        <h2>📚 Study Resources</h2>
+        <div class="feature-icon">📚</div>
+        <h2>Study Resources</h2>
         <p>
             Find notes, previous papers and useful
             study materials.
         </p>
+        <a href="resources.html">Explore Resources →</a>
     </div>
 
     <div class="feature-card">
-        <h2>📢 Important Information</h2>
+        <div class="feature-icon">📢</div>
+        <h2>Important Information</h2>
         <p>
             Stay updated with notices, deadlines
-            and announcements.
+            and important announcements.
         </p>
+        <a href="information.html">View Updates →</a>
     </div>
 
     <div class="feature-card">
-        <h2>🎯 Opportunities</h2>
+        <div class="feature-icon">🎯</div>
+        <h2>Opportunities</h2>
         <p>
             Discover internships, competitions
+            and other opportunities.
         </p>
+        <a href="opportunities.html">Explore Opportunities →</a>
     </div>
 
-</section> 
+</section>
     <script src="js/script.js"></script>
  </body>
