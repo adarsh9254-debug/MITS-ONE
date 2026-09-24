@@ -240,3 +240,61 @@ input {
     background: white;
     cursor: pointer;
 }
+.information-cards {
+display: flex;
+justify-content: center;
+gap: 25px;
+padding: 50px 20px;
+background-color: white;
+}
+.information-card {
+width: 280px;
+padding: 25px;
+border: 1px solid #e2e8d0;
+border-radius: 12px;
+background-color: white;
+
+}
+.information-card span{
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 14px;
+
+}
+.information-card p{
+    color: #64748b;
+    line-height: 1.6;
+
+}
+.information-card .date{
+    font-size: 13px;
+    margin-top: 15px;
+
+}
+.information-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.10)
+}
+@media (max-width: 768px){
+    .information-card{
+        flex-direction: column;
+        align-items: center;
+
+    }
+}
+.information-card{
+    width: 90%;
+    max-width: 400px;
+
+}
+.section-heading{
+    text-align: center;
+    padding: 20px 20px 10px;
+}
+>.section-heading h2{
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+.section-heading p{
+    color: #64748b;
+}
