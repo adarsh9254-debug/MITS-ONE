@@ -100,3 +100,49 @@ if (resourceType) {
     });
 
 }
+const semesterSelect = document.getElementById("semester");
+const subjectSelect = document.getElementById("subject");
+const resourceMessage = document.getElementById("resource-message");
+
+if (semesterSelect && subjectSelect && resourceMessage) {
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+    function updateResourceMessage() {
+
+        const semester = semesterSelect.value;
+        const subject = subjectSelect.value;
+
+        if (semester === "" && subject === "") {
+
+            resourceMessage.textContent = "";
+
+        } else if (semester === "" || subject === "") {
+
+            resourceMessage.textContent =
+                "Please select both semester and subject.";
+
+        } else {
+
+          const semesterText =
+    semesterSelect.options[semesterSelect.selectedIndex].text;
+
+const subjectText =
+    subjectSelect.options[subjectSelect.selectedIndex].text;
+
+    resourceMessage.textContent =
+            "Showing resources for " +
+            subjectText +
+             " - " +
+              semesterText +
+             ".";
+        }
+
+    }
+
+    semesterSelect.addEventListener("change", updateResourceMessage);
+    subjectSelect.addEventListener("change", updateResourceMessage);
+
+    });
+
+}

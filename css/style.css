@@ -342,3 +342,8 @@ background-color: white;
     outline: none;
     border-color: #2563eb;
 }
+#resource-massage{
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 25px;
+}
