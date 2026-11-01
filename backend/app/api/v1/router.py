@@ -7,7 +7,8 @@ from app.api.v1.endpoints import (
     resources,
     opportunities,
     events,
-    campus
+    campus,
+    ai
 )
 
 api_router = APIRouter()
@@ -20,6 +21,9 @@ api_router.include_router(auth.router, prefix="/auth", tags=["Authentication"])
 
 # Role-Restricted Admin Operations
 api_router.include_router(admin.router, prefix="/admin", tags=["Admin Portal"])
+
+# AI College Assistant & ML Recommendations
+api_router.include_router(ai.router, prefix="/ai", tags=["AI & Machine Learning"])
 
 # Smart Information Hub (Notices)
 api_router.include_router(notices.router, prefix="/notices", tags=["Notices & Announcements"])

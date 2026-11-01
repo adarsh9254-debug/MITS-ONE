@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   BookOpen,
@@ -15,17 +15,47 @@ import {
   Sparkles,
   AlertCircle,
   FileText,
-  UserCheck
+  UserCheck,
+  Award,
+  Zap
 } from 'lucide-react';
+import api from '../services/api';
 import {
   mockStudentProfile,
   mockNotices,
   mockDeadlines,
-  mockRecentResources
+  mockRecentResources,
+  mockOpportunities
 } from '../data/mockData';
 
 const Dashboard = () => {
   const urgentNotices = mockNotices.filter((n) => n.isUrgent);
+  const [recommendations, setRecommendations] = useState([]);
+  const [loadingRecs, setLoadingRecs] = useState(true);
+
+  useEffect(() => {
+    const fetchRecommendations = async () => {
+      try {
+        const response = await api.get('/ai/recommendations');
+        if (response.data && response.data.recommendations) {
+          setRecommendations(response.data.recommendations.slice(0, 3));
+        }
+      } catch (err) {
+        console.warn('Falling back to local opportunity matching:', err);
+        setRecommendations(
+          mockOpportunities.slice(0, 3).map((opp, idx) => ({
+            ...opp,
+            match_percent: idx === 0 ? 94 : idx === 1 ? 88 : 82,
+            match_reasons: opp.requiredSkills || ['Python', 'Problem Solving']
+          }))
+        );
+      } finally {
+        setLoadingRecs(false);
+      }
+    };
+
+    fetchRecommendations();
+  }, []);
 
   return (
     <div className="dashboard-page">
@@ -214,6 +244,102 @@ const Dashboard = () => {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* AI-Matched Opportunity Radar */}
+            <div className="dash-section">
+              <div className="dash-section-header">
+                <h2 className="dash-section-title">
+                  <Zap size={18} color="#2563eb" />
+                  <span>AI Recommended Opportunities</span>
+                </h2>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span className="badge badge-primary" style={{ background: '#eff6ff', color: '#1d4ed8' }}>
+                    Scikit-Learn ML
+                  </span>
+                  <Link to="/opportunities" className="btn btn-outline btn-sm">
+                    <span>View All</span>
+                    <ArrowRight size={14} />
+                  </Link>
+                </div>
+              </div>
+
+              {loadingRecs ? (
+                <div style={{ padding: '1rem', textAlign: 'center', color: '#64748b', fontSize: '0.85rem' }}>
+                  Calculating skill vector similarity with campus opportunities...
+                </div>
+              ) : (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                  {recommendations.map((rec) => (
+                    <div
+                      key={rec.id}
+                      style={{
+                        background: '#ffffff',
+                        border: '1px solid #e2e8f0',
+                        borderRadius: 8,
+                        padding: '1rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: '1rem',
+                      }}
+                    >
+                      <div style={{ flex: 1 }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+                          <span
+                            style={{
+                              background: '#ecfdf5',
+                              color: '#059669',
+                              fontSize: '0.75rem',
+                              fontWeight: 700,
+                              padding: '0.15rem 0.5rem',
+                              borderRadius: '4px',
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '0.25rem',
+                            }}
+                          >
+                            <Award size={12} />
+                            {rec.match_percent || 90}% Match
+                          </span>
+                          <span className="badge badge-accent" style={{ fontSize: '0.7rem' }}>
+                            {rec.type}
+                          </span>
+                        </div>
+                        <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#1e293b', marginBottom: '0.2rem' }}>
+                          {rec.title}
+                        </h4>
+                        <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '0.4rem' }}>
+                          {rec.organization || rec.company} • <strong>{rec.stipendOrPrize || rec.stipend}</strong>
+                        </div>
+                        {rec.match_reasons && rec.match_reasons.length > 0 && (
+                          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.3rem' }}>
+                            {rec.match_reasons.map((reason, i) => (
+                              <span
+                                key={i}
+                                style={{
+                                  fontSize: '0.7rem',
+                                  color: '#3b82f6',
+                                  background: '#eff6ff',
+                                  padding: '0.1rem 0.4rem',
+                                  borderRadius: '3px',
+                                }}
+                              >
+                                {reason}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+
+                      <Link to="/opportunities" className="btn btn-outline btn-sm" style={{ whiteSpace: 'nowrap' }}>
+                        <span>Explore</span>
+                        <ArrowRight size={13} />
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Recently Added Study Materials */}

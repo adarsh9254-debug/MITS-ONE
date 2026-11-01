@@ -15,6 +15,7 @@ import CampusNavigator from './pages/CampusNavigator';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import AIAssistant from './pages/AIAssistant';
 import ModulePlaceholder from './pages/ModulePlaceholder';
 import { Bot } from 'lucide-react';
 
@@ -56,18 +57,8 @@ function App() {
                 }
               />
 
-              {/* AI Assistant (Phase 4) */}
-              <Route
-                path="/ai-assistant"
-                element={
-                  <ModulePlaceholder
-                    title="AI College Assistant"
-                    description="Intelligent campus assistant powered by LLM RAG to answer queries on syllabus, rules, and deadlines."
-                    icon={Bot}
-                    phase="Phase 4"
-                  />
-                }
-              />
+              {/* AI Assistant (Phase 4 Grounded RAG) */}
+              <Route path="/ai-assistant" element={<AIAssistant />} />
 
               {/* Catch-all redirect to Landing */}
               <Route path="*" element={<LandingPage />} />
