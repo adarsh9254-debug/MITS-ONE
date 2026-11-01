@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
   BookOpen,
@@ -10,15 +10,18 @@ import {
   Bot,
   Shield,
   LogIn,
-  CheckCircle2,
-  XCircle,
+  LogOut,
+  User,
   Menu,
   X
 } from 'lucide-react';
 import { checkSystemHealth } from '../../services/api';
+import { useAuth } from '../../context/AuthContext';
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, isAuthenticated, isAdmin, logout } = useAuth();
   const [backendStatus, setBackendStatus] = useState({ online: false, checking: true });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -32,7 +35,7 @@ const Navbar = () => {
     };
 
     verifyHealth();
-    const interval = setInterval(verifyHealth, 15000); // Check every 15s
+    const interval = setInterval(verifyHealth, 15000);
 
     return () => {
       isMounted = false;
@@ -49,6 +52,11 @@ const Navbar = () => {
     { label: 'Campus Map', path: '/campus', icon: Compass },
     { label: 'AI Assistant', path: '/ai-assistant', icon: Bot, isSpecial: true },
   ];
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <header className="navbar-header">
@@ -95,15 +103,46 @@ const Navbar = () => {
             <span>{backendStatus.online ? 'API Online' : 'Connecting...'}</span>
           </div>
 
-          <Link to="/login" className="btn btn-outline btn-sm">
-            <LogIn size={15} />
-            <span>Login</span>
-          </Link>
+          {isAuthenticated ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+              {isAdmin && (
+                <Link to="/admin" className="btn btn-primary btn-sm" title="Admin Portal">
+                  <Shield size={14} />
+                  <span>Admin Panel</span>
+                </Link>
+              )}
 
-          <Link to="/admin" className="btn btn-primary btn-sm" title="Restricted to Faculty & Administrators">
-            <Shield size={15} />
-            <span>Admin</span>
-          </Link>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: '#f1f5f9', padding: '0.35rem 0.65rem', borderRadius: 8, fontSize: '0.8rem' }}>
+                <User size={14} color="#2563eb" />
+                <span style={{ fontWeight: 600, color: '#0f172a' }}>{user.full_name}</span>
+                <span className={`badge ${user.role === 'admin' ? 'badge-warning' : 'badge-primary'}`} style={{ fontSize: '0.65rem', padding: '0.1rem 0.4rem' }}>
+                  {user.role}
+                </span>
+              </div>
+
+              <button
+                onClick={handleLogout}
+                className="btn btn-outline btn-sm"
+                title="Sign Out"
+                style={{ color: '#ef4444' }}
+              >
+                <LogOut size={14} />
+                <span>Logout</span>
+              </button>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Link to="/login" className="btn btn-outline btn-sm">
+                <LogIn size={15} />
+                <span>Login</span>
+              </Link>
+
+              <Link to="/admin" className="btn btn-primary btn-sm" title="Restricted to Administrators">
+                <Shield size={15} />
+                <span>Admin</span>
+              </Link>
+            </div>
+          )}
 
           <button
             className="mobile-nav-toggle"

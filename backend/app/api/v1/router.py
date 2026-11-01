@@ -1,10 +1,25 @@
 from fastapi import APIRouter
-from app.api.v1.endpoints import health, notices, resources, opportunities, events, campus
+from app.api.v1.endpoints import (
+    health,
+    auth,
+    admin,
+    notices,
+    resources,
+    opportunities,
+    events,
+    campus
+)
 
 api_router = APIRouter()
 
 # Core diagnostic and health monitoring
 api_router.include_router(health.router, prefix="/health", tags=["Health & Diagnostics"])
+
+# Authentication & Registration
+api_router.include_router(auth.router, prefix="/auth", tags=["Authentication"])
+
+# Role-Restricted Admin Operations
+api_router.include_router(admin.router, prefix="/admin", tags=["Admin Portal"])
 
 # Smart Information Hub (Notices)
 api_router.include_router(notices.router, prefix="/notices", tags=["Notices & Announcements"])
