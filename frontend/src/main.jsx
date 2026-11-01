@@ -7,6 +7,7 @@ import './styles/navbar.css';
 import './styles/landing.css';
 import './styles/dashboard.css';
 import './styles/notices.css';
+import './styles/resources.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

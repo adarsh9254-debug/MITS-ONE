@@ -5,8 +5,9 @@ import Footer from './components/layout/Footer';
 import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
 import InformationHub from './pages/InformationHub';
+import StudyResourceHub from './pages/StudyResourceHub';
 import ModulePlaceholder from './pages/ModulePlaceholder';
-import { BookOpen, Briefcase, Calendar, Compass, Bot, LogIn, Shield } from 'lucide-react';
+import { Briefcase, Calendar, Compass, Bot, LogIn, Shield } from 'lucide-react';
 
 function App() {
   return (
@@ -18,17 +19,7 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/notices" element={<InformationHub />} />
-            <Route
-              path="/resources"
-              element={
-                <ModulePlaceholder
-                  title="Study Resource Hub"
-                  description="Hierarchical study materials organized by Department → Semester → Subject (Notes, PYQs, Lab Manuals)."
-                  icon={BookOpen}
-                  phase="Phase 2 (Next Step)"
-                />
-              }
-            />
+            <Route path="/resources" element={<StudyResourceHub />} />
             <Route
               path="/opportunities"
               element={
