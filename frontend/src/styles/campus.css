@@ -1,0 +1,50 @@
+/* Campus Navigator Styles */
+
+.campus-page {
+  padding: 2.5rem 0 4rem;
+  background-color: var(--bg-main);
+}
+
+.campus-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.campus-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.campus-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: #93c5fd;
+}
+
+.loc-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.loc-dept { background: #eff6ff; color: #1e40af; }
+.loc-lab { background: #ecfdf5; color: #065f46; }
+.loc-lib { background: #faf5ff; color: #7e22ce; }
+.loc-aud { background: #fff1f2; color: #be123c; }
+.loc-admin { background: #fffbeb; color: #b45309; }
+
+@media (max-width: 900px) {
+  .campus-grid {
+    grid-template-columns: 1fr;
+  }
+}

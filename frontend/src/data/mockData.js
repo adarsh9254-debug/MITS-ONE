@@ -10,7 +10,7 @@ export const mockStudentProfile = {
   cgpa: 8.92,
   email: "adarsh.patel@mitsgwl.ac.in",
   avatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=Adarsh",
-  skills: ["Python", "FastAPI", "React.js", "SQL", "Data Structures"],
+  skills: ["Python", "FastAPI", "React.js", "SQL", "Data Structures", "Algorithms", "Machine Learning"],
   interests: ["Artificial Intelligence", "Full-Stack Development", "Competitive Programming"],
   mentor: "Dr. Dheeraj Dixit (HOD)",
 };
@@ -23,7 +23,6 @@ export const mockDepartments = [
 ];
 
 export const mockSubjects = [
-  // Mathematics & Computing (MAC)
   { code: "MAC-101", name: "Calculus & Analytical Geometry", dept: "MAC", semester: 1 },
   { code: "MAC-201", name: "Linear Algebra & Differential Equations", dept: "MAC", semester: 2 },
   { code: "MAC-301", name: "Discrete Mathematics & Graph Theory", dept: "MAC", semester: 3 },
@@ -34,8 +33,6 @@ export const mockSubjects = [
   { code: "MAC-501", name: "Scientific Computing & Numerical Methods", dept: "MAC", semester: 5 },
   { code: "MAC-502", name: "Database Management Systems", dept: "MAC", semester: 5 },
   { code: "MAC-601", name: "Machine Learning & Statistical Pattern Recognition", dept: "MAC", semester: 6 },
-  
-  // Computer Science & Engineering (CSE)
   { code: "CS-301", name: "Object Oriented Programming (Java/C++)", dept: "CSE", semester: 3 },
   { code: "CS-401", name: "Computer Organization & Architecture", dept: "CSE", semester: 4 },
   { code: "CS-501", name: "Theory of Computation & Automata", dept: "CSE", semester: 5 },
@@ -228,8 +225,7 @@ export const mockNotices = [
     isUrgent: true,
     publishedBy: "Office of the Controller of Examinations",
     publishedDate: "2026-11-01",
-    content:
-      "All B.Tech students of Mathematics & Computing and allied branches are hereby informed that Mid-Sem examinations will commence from 24th November 2026. Detailed subject-wise timetable and seating plan are attached below.",
+    content: "All B.Tech students of Mathematics & Computing and allied branches are hereby informed that Mid-Sem examinations will commence from 24th November 2026. Detailed subject-wise timetable and seating plan are attached below.",
     attachmentName: "MidSem_Timetable_Nov2026.pdf",
     attachmentSize: "1.4 MB",
     pinned: true,
@@ -241,8 +237,7 @@ export const mockNotices = [
     isUrgent: true,
     publishedBy: "MITS Innovation & Incubation Council",
     publishedDate: "2026-10-29",
-    content:
-      "Teams wishing to represent MITS Gwalior in SIH 2026 must submit their problem statement abstract and prototype pitch before 10th November 2026. Internal mentoring session will be guided by Dr. Dheeraj Dixit.",
+    content: "Teams wishing to represent MITS Gwalior in SIH 2026 must submit their problem statement abstract and prototype pitch before 10th November 2026. Internal mentoring session will be guided by Dr. Dheeraj Dixit.",
     attachmentName: "SIH_Internal_Guidelines_2026.pdf",
     attachmentSize: "2.1 MB",
     pinned: true,
@@ -254,8 +249,7 @@ export const mockNotices = [
     isUrgent: false,
     publishedBy: "Department of Mathematics and Computing",
     publishedDate: "2026-10-25",
-    content:
-      "The Department of Mathematics and Computing is organizing an expert session on 'High-Dimensional Vector Spaces in LLMs' in the SAC Auditorium on Friday at 3:00 PM. Attendance is compulsory for Sem 4 & 6 students.",
+    content: "The Department of Mathematics and Computing is organizing an expert session on 'High-Dimensional Vector Spaces in LLMs' in the SAC Auditorium on Friday at 3:00 PM. Attendance is compulsory for Sem 4 & 6 students.",
     attachmentName: "LinearAlgebra_Lecture_Brochure.pdf",
     attachmentSize: "840 KB",
     pinned: false,
@@ -267,8 +261,7 @@ export const mockNotices = [
     isUrgent: false,
     publishedBy: "Training & Placement Cell",
     publishedDate: "2026-10-20",
-    content:
-      "Registrations are open for pre-final year B.Tech students (MAC, CSE, IT) with CGPA 7.5 and above for SDE Internship roles. Eligible students must update their resume on the placement portal.",
+    content: "Registrations are open for pre-final year B.Tech students (MAC, CSE, IT) with CGPA 7.5 and above for SDE Internship roles. Eligible students must update their resume on the placement portal.",
     attachmentName: "Placement_Drive_Eligibility_Criteria.pdf",
     attachmentSize: "920 KB",
     pinned: false,
@@ -280,8 +273,7 @@ export const mockNotices = [
     isUrgent: false,
     publishedBy: "Central Library MITS",
     publishedDate: "2026-10-15",
-    content:
-      "Students who issued reference books for the mid-term assessment must renew or return them by 15th November 2026. Digital IEEE and Springer access is now available via campus intranet.",
+    content: "Students who issued reference books for the mid-term assessment must renew or return them by 15th November 2026. Digital IEEE and Springer access is now available via campus intranet.",
     attachmentName: "Library_Digital_Access_Manual.pdf",
     attachmentSize: "1.1 MB",
     pinned: false,
@@ -350,5 +342,245 @@ export const mockRecentResources = [
     uploadedBy: "Computing Lab Lead",
     downloads: 289,
     fileSize: "2.4 MB",
+  },
+];
+
+// ==========================================
+// NEW: OPPORTUNITIES DATA
+// ==========================================
+export const mockOpportunities = [
+  {
+    id: "opp-001",
+    title: "AI / Python Engineering Intern",
+    organization: "Nexora Intelligence Labs",
+    type: "Internship",
+    location: "Remote / Hybrid (Gwalior)",
+    stipendOrPrize: "₹25,000 / month",
+    deadline: "2026-11-20",
+    requiredSkills: ["Python", "FastAPI", "React.js", "SQL"],
+    eligibility: "B.Tech MAC / CSE / IT (3rd & 4th Year)",
+    description: "Work directly on scalable FastAPI backends, vector search pipelines, and responsive React web applications. Mentored by experienced full-stack engineers.",
+    applyUrl: "https://nexora.tech/careers",
+    featured: true,
+  },
+  {
+    id: "opp-002",
+    title: "Smart India Hackathon (SIH 2026) — Software Edition",
+    organization: "Ministry of Education & AICTE",
+    type: "Hackathon",
+    location: "National Finals / MITS College Round",
+    stipendOrPrize: "₹1,00,000 Grand Prize per Problem",
+    deadline: "2026-11-10",
+    requiredSkills: ["Data Structures", "Python", "React.js", "Algorithms"],
+    eligibility: "All undergraduate engineering teams (6 members including at least 1 female teammate)",
+    description: "India's premier nationwide innovation challenge solving real problems posed by Government Ministries and Industry Leaders.",
+    applyUrl: "https://sih.gov.in",
+    featured: true,
+  },
+  {
+    id: "opp-003",
+    title: "Summer Research Fellowship — Scientific Computing",
+    organization: "IIT Bombay & MITS Joint R&D Cell",
+    type: "Scholarship",
+    location: "IIT Bombay Campus / Hybrid",
+    stipendOrPrize: "₹15,000 / month + Accommodation",
+    deadline: "2026-12-05",
+    requiredSkills: ["Python", "Algorithms", "Machine Learning"],
+    eligibility: "B.Tech Mathematics and Computing with CGPA > 8.0",
+    description: "2-month funded summer research internship focusing on numerical optimization, high-dimensional matrices, and scientific AI modeling.",
+    applyUrl: "https://iitb.ac.in/research-fellowships",
+    featured: false,
+  },
+  {
+    id: "opp-004",
+    title: "Junior Data Analyst & Machine Learning Trainee",
+    organization: "Tata Consultancy Services (TCS Digital)",
+    type: "Job",
+    location: "Indore / Pune / Bangalore",
+    stipendOrPrize: "₹7.5 LPA CTC",
+    deadline: "2026-11-30",
+    requiredSkills: ["SQL", "Python", "Machine Learning"],
+    eligibility: "Final and Pre-Final Year B.Tech Students (No active backlogs)",
+    description: "Entry-level engineering role involving SQL database administration, predictive model maintenance, and enterprise data analytics pipelines.",
+    applyUrl: "https://nextstep.tcs.com",
+    featured: false,
+  },
+  {
+    id: "opp-005",
+    title: "ACM-ICPC Gwalior-Kanpur Regional Competitive Contest",
+    organization: "International Collegiate Programming Contest",
+    type: "Competition",
+    location: "Online Preliminary Round",
+    stipendOrPrize: "Certificate of Merit + World Finals Qualifier",
+    deadline: "2026-11-15",
+    requiredSkills: ["Algorithms", "Data Structures", "C++ / Python"],
+    eligibility: "College teams of 3 members from recognized Indian universities",
+    description: "The Olympics of competitive programming. Tackle complex graph theory, dynamic programming, and computational geometry challenges.",
+    applyUrl: "https://icpc.global",
+    featured: true,
+  },
+];
+
+// ==========================================
+// NEW: CLUBS AND SOCIETIES DATA
+// ==========================================
+export const mockClubs = [
+  {
+    id: "club-001",
+    name: "Team Nexora Technical Chapter",
+    category: "Technical",
+    badge: "Student Tech Chapter",
+    leadName: "Adarsh Patel & Atul Kushwah",
+    leadContact: "nexora@mitsgwl.ac.in",
+    membersCount: 140,
+    description: "Student-driven engineering chapter specializing in full-stack web applications, Python backend development, and open-source contributions.",
+    logo: "💻",
+  },
+  {
+    id: "club-002",
+    name: "MITS Coding & Algorithmic Club",
+    category: "Technical",
+    badge: "Competitive Programming",
+    leadName: "Dr. Dheeraj Dixit (Faculty Lead)",
+    leadContact: "codingclub@mitsgwl.ac.in",
+    membersCount: 320,
+    description: "Fosters competitive programming problem-solving skills, weekly LeetCode contests, and mentoring for ACM-ICPC and Google Code Jam.",
+    logo: "⚡",
+  },
+  {
+    id: "club-003",
+    name: "MITS Robotics & IoT Society",
+    category: "Technical",
+    badge: "Hardware & Automation",
+    leadName: "Harshit Verma (Sem 6)",
+    leadContact: "robotics@mitsgwl.ac.in",
+    membersCount: 185,
+    description: "Hands-on robotics club building autonomous drones, line-followers, and IoT edge devices for national inter-college tech fests.",
+    logo: "🤖",
+  },
+  {
+    id: "club-004",
+    name: "Scintilla Cultural Society",
+    category: "Cultural",
+    badge: "Arts & Drama",
+    leadName: "Priya Sharma (Sem 6)",
+    leadContact: "scintilla@mitsgwl.ac.in",
+    membersCount: 260,
+    description: "Organizes MITS annual cultural festival, musical concerts, street plays (Nukkad Natak), and fine arts exhibitions.",
+    logo: "🎭",
+  },
+];
+
+// ==========================================
+// NEW: CAMPUS EVENTS DATA
+// ==========================================
+export const mockEvents = [
+  {
+    id: "ev-001",
+    title: "Nexora HackNight 2026 — 24-Hour Code Sprint",
+    clubId: "club-001",
+    clubName: "Team Nexora Technical Chapter",
+    category: "Hackathon",
+    startDatetime: "2026-11-21 09:00 AM",
+    venue: "Computing Center Lab 3 & 4 (Block B)",
+    registrationLink: "https://nexora.tech/hacknight",
+    description: "A fast-paced 24-hour hackathon focused on building student-centric AI and web applications with real cash prizes and mentorship.",
+    isUpcoming: true,
+  },
+  {
+    id: "ev-002",
+    title: "Expert Workshop: Graph Neural Networks & Transformers",
+    clubId: "club-002",
+    clubName: "MITS Coding & Algorithmic Club",
+    category: "Workshop",
+    startDatetime: "2026-11-17 02:00 PM",
+    venue: "SAC Auditorium",
+    registrationLink: "https://mitsgwl.ac.in/events/gnn-workshop",
+    description: "Specialized masterclass on graph representation learning and modern LLM attention mechanisms by visiting IIT professors.",
+    isUpcoming: true,
+  },
+  {
+    id: "ev-003",
+    title: "Annual Inter-Departmental Coding Olympiad",
+    clubId: "club-002",
+    clubName: "MITS Coding & Algorithmic Club",
+    category: "Competition",
+    startDatetime: "2026-11-28 10:00 AM",
+    venue: "Department of Mathematics & Computing Labs",
+    registrationLink: "https://mitsgwl.ac.in/events/olympiad-2026",
+    description: "Annual algorithm showdown open to all B.Tech branches. Solve 6 algorithmic problems in 3 hours.",
+    isUpcoming: true,
+  },
+];
+
+// ==========================================
+// NEW: CAMPUS NAVIGATOR LOCATIONS DATA
+// ==========================================
+export const mockCampusLocations = [
+  {
+    id: "loc-001",
+    name: "Department of Mathematics and Computing",
+    buildingBlock: "Block B (Academic Complex)",
+    floor: "2nd Floor, Room B-204",
+    category: "Department",
+    leadPerson: "Dr. Dheeraj Dixit (HOD)",
+    directions: "Enter Main Gate, proceed past Central Garden, take staircase inside Block B to the 2nd floor.",
+    timings: "09:30 AM - 05:00 PM",
+    facilities: ["Faculty Chambers", "MAC Departmental Library", "Seminar Hall B-2"],
+  },
+  {
+    id: "loc-002",
+    name: "Central Computing Center (Labs 1, 2, 3 & 4)",
+    buildingBlock: "Computing Center Building",
+    floor: "Ground & 1st Floor",
+    category: "Laboratory",
+    leadPerson: "Lab Superintendent",
+    directions: "Adjacent to Central Library. Enter glass lobby for Labs 1-4.",
+    timings: "08:30 AM - 07:00 PM",
+    facilities: ["High-Performance Computing Cluster", "Gigabit LAN", "Online Examination Terminals"],
+  },
+  {
+    id: "loc-003",
+    name: "Central Library & Digital Knowledge Repository",
+    buildingBlock: "Dr. S. Radhakrishnan Central Library",
+    floor: "3-Storey Dedicated Building",
+    category: "Library",
+    leadPerson: "Chief Librarian",
+    directions: "Opposite the Administrative Block, adjacent to the North Lawn.",
+    timings: "08:00 AM - 08:00 PM (Extended during exams)",
+    facilities: ["Reading Halls", "Digital IEEE Terminal Zone", "Book Issue Counters", "Reprographic Center"],
+  },
+  {
+    id: "loc-004",
+    name: "Student Activity Centre (SAC) & Main Auditorium",
+    buildingBlock: "SAC Complex",
+    floor: "Ground Floor",
+    category: "Auditorium",
+    leadPerson: "Dean of Student Welfare",
+    directions: "Follow campus main driveway towards the South Pavilion and Sports Ground.",
+    timings: "09:00 AM - 09:00 PM",
+    facilities: ["1,200 Capacity Auditorium", "Indoor Sports Arena", "Club Meeting Rooms", "Cafeteria"],
+  },
+  {
+    id: "loc-005",
+    name: "Office of the Controller of Examinations (Exam Cell)",
+    buildingBlock: "Administrative Block",
+    floor: "1st Floor, Room A-108",
+    category: "Admin",
+    leadPerson: "Controller of Examinations",
+    directions: "Located inside the heritage Main Administrative building, 1st floor west wing.",
+    timings: "10:00 AM - 04:30 PM",
+    facilities: ["Admit Card Verification", "Degree & Grade Sheet Window", "Confidential Exam Chambers"],
+  },
+  {
+    id: "loc-006",
+    name: "Training & Placement Cell (T&P)",
+    buildingBlock: "Administrative Block",
+    floor: "Ground Floor, Room A-014",
+    category: "Admin",
+    leadPerson: "T&P Officer",
+    directions: "Main Building ground floor, opposite the Syndicate Room.",
+    timings: "09:30 AM - 05:30 PM",
+    facilities: ["Interview Suites", "Group Discussion Rooms", "Corporate Waiting Lounge"],
   },
 ];

@@ -8,6 +8,9 @@ import './styles/landing.css';
 import './styles/dashboard.css';
 import './styles/notices.css';
 import './styles/resources.css';
+import './styles/opportunities.css';
+import './styles/events.css';
+import './styles/campus.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

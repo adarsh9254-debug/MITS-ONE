@@ -6,8 +6,11 @@ import LandingPage from './pages/LandingPage';
 import Dashboard from './pages/Dashboard';
 import InformationHub from './pages/InformationHub';
 import StudyResourceHub from './pages/StudyResourceHub';
+import OpportunityRadar from './pages/OpportunityRadar';
+import EventsClubs from './pages/EventsClubs';
+import CampusNavigator from './pages/CampusNavigator';
 import ModulePlaceholder from './pages/ModulePlaceholder';
-import { Briefcase, Calendar, Compass, Bot, LogIn, Shield } from 'lucide-react';
+import { Bot, LogIn, Shield } from 'lucide-react';
 
 function App() {
   return (
@@ -20,39 +23,9 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/notices" element={<InformationHub />} />
             <Route path="/resources" element={<StudyResourceHub />} />
-            <Route
-              path="/opportunities"
-              element={
-                <ModulePlaceholder
-                  title="Opportunity Radar"
-                  description="Curated internships, hackathons, and scholarship listings with personalized skill matching."
-                  icon={Briefcase}
-                  phase="Phase 2 (Next Step)"
-                />
-              }
-            />
-            <Route
-              path="/events"
-              element={
-                <ModulePlaceholder
-                  title="Events & Student Clubs"
-                  description="Discover technical & cultural campus events, register for clubs, and track student chapter activities."
-                  icon={Calendar}
-                  phase="Phase 2 (Next Step)"
-                />
-              }
-            />
-            <Route
-              path="/campus"
-              element={
-                <ModulePlaceholder
-                  title="Campus Navigator"
-                  description="Interactive locator for engineering departments, computing labs, faculty rooms, and campus facilities."
-                  icon={Compass}
-                  phase="Phase 2 (Next Step)"
-                />
-              }
-            />
+            <Route path="/opportunities" element={<OpportunityRadar />} />
+            <Route path="/events" element={<EventsClubs />} />
+            <Route path="/campus" element={<CampusNavigator />} />
             <Route
               path="/ai-assistant"
               element={
