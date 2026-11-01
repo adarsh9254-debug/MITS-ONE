@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
+  LayoutDashboard,
   BookOpen,
   Bell,
   Compass,
@@ -40,6 +41,7 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
+    { label: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
     { label: 'Notices', path: '/notices', icon: Bell },
     { label: 'Study Resources', path: '/resources', icon: BookOpen },
     { label: 'Opportunities', path: '/opportunities', icon: Briefcase },

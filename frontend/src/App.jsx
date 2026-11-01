@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import LandingPage from './pages/LandingPage';
+import Dashboard from './pages/Dashboard';
+import InformationHub from './pages/InformationHub';
 import ModulePlaceholder from './pages/ModulePlaceholder';
-import { Bell, BookOpen, Briefcase, Calendar, Compass, Bot, LogIn, Shield } from 'lucide-react';
+import { BookOpen, Briefcase, Calendar, Compass, Bot, LogIn, Shield } from 'lucide-react';
 
 function App() {
   return (
@@ -14,17 +16,8 @@ function App() {
         <div style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route
-              path="/notices"
-              element={
-                <ModulePlaceholder
-                  title="Smart Information Hub"
-                  description="Centralized portal for departmental notices, university circulars, and academic deadlines with priority alerts."
-                  icon={Bell}
-                  phase="Phase 2"
-                />
-              }
-            />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/notices" element={<InformationHub />} />
             <Route
               path="/resources"
               element={
@@ -32,7 +25,7 @@ function App() {
                   title="Study Resource Hub"
                   description="Hierarchical study materials organized by Department → Semester → Subject (Notes, PYQs, Lab Manuals)."
                   icon={BookOpen}
-                  phase="Phase 2"
+                  phase="Phase 2 (Next Step)"
                 />
               }
             />
@@ -43,7 +36,7 @@ function App() {
                   title="Opportunity Radar"
                   description="Curated internships, hackathons, and scholarship listings with personalized skill matching."
                   icon={Briefcase}
-                  phase="Phase 2"
+                  phase="Phase 2 (Next Step)"
                 />
               }
             />
@@ -54,7 +47,7 @@ function App() {
                   title="Events & Student Clubs"
                   description="Discover technical & cultural campus events, register for clubs, and track student chapter activities."
                   icon={Calendar}
-                  phase="Phase 2"
+                  phase="Phase 2 (Next Step)"
                 />
               }
             />
@@ -65,7 +58,7 @@ function App() {
                   title="Campus Navigator"
                   description="Interactive locator for engineering departments, computing labs, faculty rooms, and campus facilities."
                   icon={Compass}
-                  phase="Phase 2"
+                  phase="Phase 2 (Next Step)"
                 />
               }
             />
