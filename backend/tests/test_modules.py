@@ -50,8 +50,11 @@ def test_campus_navigator():
     assert any("Central Library" in l["name"] for l in search_lib)
     print(" Search query (Central Library) passed.")
 
-if __name__ == "__main__":
+def test_phase2_modules():
     test_opportunity_radar()
     test_events_and_clubs()
     test_campus_navigator()
+
+if __name__ == "__main__":
+    test_phase2_modules()
     print("\n All Phase 2 Core Modules Unit Tests Passed Successfully!")

@@ -8,6 +8,7 @@ from app.api.v1.endpoints.auth import login_user, register_student
 from app.api.v1.endpoints.admin import get_admin_stats
 from app.schemas.auth_schema import UserLogin, UserRegister
 from app.api.deps import get_current_user, get_current_admin
+from app.models.user import User
 from fastapi import HTTPException
 
 def test_auth_and_rbac():
@@ -38,7 +39,14 @@ def test_auth_and_rbac():
             assert e.status_code == 401
             print(" Bad credentials rejection passed (HTTP 401).")
 
-        # 4. Test Student Registration (Atul Kushwah)
+        # 4. Test Student Registration (Atul Kushwah) — Idempotent
+        existing_atul = db.query(User).filter(User.email == "atul.kushwah@mitsgwl.ac.in").first()
+        if existing_atul:
+            if existing_atul.profile:
+                db.delete(existing_atul.profile)
+            db.delete(existing_atul)
+            db.commit()
+
         atul_reg = UserRegister(
             email="atul.kushwah@mitsgwl.ac.in",
             password="atulpassword123",

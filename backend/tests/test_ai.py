@@ -51,5 +51,7 @@ def main():
     test_ai_college_assistant()
     print("\n All AI & Machine Learning Subsystem Tests Passed Successfully!")
 
+test_ai_subsystem = main
+
 if __name__ == "__main__":
     main()
